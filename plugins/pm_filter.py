@@ -222,17 +222,18 @@ async def next_page(bot, query):
     settings = await get_settings(query.message.chat.id)
     if settings['button']:
         if URL_MODE == False:
-	      for file in files:
-              cap += f"<b>\n📁 <a href='https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}'>[{get_size(file.file_size)}] {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n</a></b>", callback_data=f'files#{file.file_id}'
-       #      btn = [
-       #          [
-       #              InlineKeyboardButton(
-			    # text=f"[{get_size(file.file_size)}] {file.file_name.split()}", callback_data=f'files#{file.file_id}'
-       #                  #text=f"<b>\n📁 <a href='https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}'>[{get_size(file.file_size)}] {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n</a></b>", callback_data=f'files#{file.file_id}'
-       #              ),
-       #          ]
-       #          for file in files
-       #      ]
+	      #for file in files:
+              #cap += f"<b>\n📁 <a href='https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}'>[{get_size(file.file_size)}] {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n</a></b>", callback_data=f'files#{file.file_id}'
+            btn = [
+                [
+                    InlineKeyboardButton(
+			    text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
+			    #text=f"[{get_size(file.file_size)}] {file.file_name.split()}", callback_data=f'files#{file.file_id}'
+                        #text=f"<b>\n📁 <a href='https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}'>[{get_size(file.file_size)}] {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n</a></b>", callback_data=f'files#{file.file_id}'
+                    ),
+                ]
+                for file in files
+            ]
         else:
             btn = [
                 [
